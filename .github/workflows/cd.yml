@@ -33,3 +33,7 @@ jobs:
 
       - name: 'Build and push Docker image'
         run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/black-beach-300715/notely-ar-repo/miguelleal96/notely:latest .'
+
+      - name: 'Deploy to Cloud Run'
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/black-beach-300715/notely-ar-repo/miguelleal96/notely:latest --region us-central1 --allow-unauthenticated --project black-beach-300715 --max-instances=4
+
